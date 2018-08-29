@@ -3,6 +3,7 @@ import Router from 'vue-router'
 // import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/login/login'
 import passwordforgotten from '@/components/passwordforgortten/passwordforgotten'
+import index from '@/components/index/index'
 Vue.use(Router)
 
 export default new Router({
@@ -21,6 +22,11 @@ export default new Router({
       path: '/passwordforgotten',
       name: 'passwordforgotten',
       component: passwordforgotten
+    },
+    {
+      path: '/index',
+      name: 'index',
+      component: index
     }
   ],
   mode: 'history'// 去除开头的#号

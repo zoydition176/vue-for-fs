@@ -110,7 +110,8 @@ export default {
       password_check: {
         status: false,
         text: '您的密码不正确'
-      }
+      },
+      loginaccess: false
     }
   },
   methods: {
@@ -119,9 +120,18 @@ export default {
       var password = this.password
       if (!checkisEmail(name)) {
         this.name_check.status = true
+        this.loginaccess = false
+      } else {
+        this.loginaccess = true
       }
       if (password.length <= 6) {
         this.password_check.status = true
+        this.loginaccess = false
+      } else {
+        this.loginaccess = true
+      }
+      if (this.loginaccess) {
+        window.location.href = '/index'
       }
     }
   }
