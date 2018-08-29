@@ -7735,15 +7735,17 @@ input:-webkit-autofill {
 }
 
 .FiberStore_login_validate_alert {
-  display: none;
+  /* display: none; */
   color: #D63030;
-  background: url(/includes/templates/fiberstore/images/login_alert_icon.png) no-repeat 0px 5px;
+  /* background: url(images/login_alert_icon.png) no-repeat 0px 5px; */
+  background: url(https://www.feisu.com/includes/templates/fiberstore/images/login_alert_icon.png) no-repeat 0px 5px;
   text-indent: 20px;
   height: 24px;
   line-height: 24px;
   position: absolute;
   bottom: 0px;
   left: 0;
+  font-weight: 400;
 }
 
 .register_main_rightnow {

@@ -14,13 +14,13 @@
             <div class="login-tab-panel active">
               <ul class="login-row">
                 <li>
-                  <input type="text" id="email_address_login" name="email_address_login" class="register_main_form_input" placeholder="请输入手机号/邮箱" value=''>
-                  <b class="FiberStore_login_validate_alert"></b>
+                  <input type="text" id="email_address_login" name="email_address_login" @focus="name_check.status=false" class="register_main_form_input" placeholder="请输入手机号/邮箱" v-model="login_name">
+                  <b class="FiberStore_login_validate_alert" v-if="name_check.status">{{name_check.text}}</b>
                 </li>
                 <li>
-                  <input type="password" id="password_login" name="password_login" class="register_main_form_input" placeholder="请输入密码" value="">
+                  <input type="password" id="password_login" name="password_login" @focus="password_check.status=false" class="register_main_form_input" placeholder="请输入密码" v-model="password">
                   <span class="psw-eyes"></span>
-                  <b class="FiberStore_login_validate_alert">error</b>
+                  <b class="FiberStore_login_validate_alert" v-if="password_check.status">{{password_check.text}}</b>
                 </li>
               </ul>
               <div class="login-link">
@@ -37,9 +37,9 @@
                   <a href="">立即注册</a>
                 </div>
               </div>
-              <input class="register_main_rightnow login_now" type="submit" id="user_login" value="立即登录" onclick="">
+              <input class="register_main_rightnow login_now" type="submit" id="user_login" value="立即登录" @click="checklogin()">
               <!--游客登录，隐藏-->
-              <div class="login-tourist-btn">
+              <div class="login-tourist-btn" v-if="touristbtn">
                 <input class="tourist-regist-btn" type="button" value="以游客身份购买">
               </div>
             </div>
@@ -53,7 +53,7 @@
                 <li>
                   <input type="text" id="verify_code" name="verify_code" class="register_main_form_input" placeholder="请输入验证码" value="">
                   <input type="button" class="get-code" value="获取验证码" id="loginGetcode"/>
-                  <b class="FiberStore_login_validate_alert">error</b>
+                  <b class="FiberStore_login_validate_alert"></b>
                 </li>
               </ul>
               <div class="login-link">
@@ -94,11 +94,35 @@
 </template>
 <script>
 import $ from 'jquery'
+// import {checkisEmail, checkisMobilemainland, checkisMobilehk, checkisInt, checkisName} from '../../js/common_reg.js'
+import {checkisEmail} from '../../js/common_reg.js'
 export default {
   name: 'Login',
+  data () {
+    return {
+      touristbtn: false,
+      login_name: '',
+      name_check: {
+        status: false,
+        text: '您的邮箱格式不正确'
+      },
+      password: '',
+      password_check: {
+        status: false,
+        text: '您的密码不正确'
+      }
+    }
+  },
   methods: {
     checklogin () {
-
+      var name = this.login_name
+      var password = this.password
+      if (!checkisEmail(name)) {
+        this.name_check.status = true
+      }
+      if (password.length <= 6) {
+        this.password_check.status = true
+      }
     }
   }
 }
