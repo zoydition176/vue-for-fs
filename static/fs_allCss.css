@@ -8107,7 +8107,7 @@ input:-webkit-autofill {
 .login-link .login-linkpanel a {
   padding: 0 12px;
   display: inline-block;
-  line-height: 18px;
+  line-height: 24px;
   float: left;
   color: #666666;
 }
@@ -8121,7 +8121,7 @@ input:-webkit-autofill {
   content: '';
   display: block;
   position: absolute;
-  top: 2px;
+  top: 5px;
   left: -1px;
   width: 1px;
   height: 14px;
@@ -16461,14 +16461,14 @@ textarea {
 }
 
 #tbox {
-  width: 22px;
+  /* width: 22px;
   height: 85px;
   float: right;
   position: fixed;
   _position: absolute;
   _bottom: auto;
   _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight-(parseInt(this.currentStyle.marginTop, 10)||0)-(parseInt(this.currentStyle.marginBottom, 10)||0)));
-  _margin-bottom: 10px
+  _margin-bottom: 10px */
 }
 
 /* #jianyi {

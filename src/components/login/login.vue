@@ -25,16 +25,14 @@
               </ul>
               <div class="login-link">
                 <div class="login-check">
-                  <label for="autoLogin">
-                    <span class="checkbox-red active">
-                      <input type="checkbox" id="autoLogin" checked>
-                    </span>
-                    30天内自动登录
-                  </label>
+                  <div class="fs-checkbox-de active">
+                    <b><input type="checkbox" name="comfirm_afford" checked="checked"></b>
+                    <span>30天自动登陆</span>
+                  </div>
                 </div>
                 <div class="login-linkpanel">
                   <router-link to="/passwordforgotten">忘记密码?</router-link>
-                  <a href="">立即注册</a>
+                  <router-link to="/regist">立即注册</router-link>
                 </div>
               </div>
               <input class="register_main_rightnow login_now" type="submit" id="user_login" value="立即登录" @click="checklogin()">
@@ -57,17 +55,13 @@
                 </li>
               </ul>
               <div class="login-link">
-                <div class="login-check">
-                  <label for="autoTelLogin">
-                    <span class="checkbox-red active">
-                      <input type="checkbox" id="autoTelLogin" checked>
-                    </span>
-                    30天内自动登录
-                  </label>
+                <div class="fs-checkbox-de active">
+                  <b><input type="checkbox" name="comfirm_afford" checked="checked"></b>
+                  <span>30天自动登陆</span>
                 </div>
                 <div class="login-linkpanel">
                   <router-link to="/passwordforgotten">忘记密码?</router-link>
-                  <a href="">立即注册</a>
+                  <router-link to="/regist">立即注册</router-link>
                 </div>
               </div>
               <input class="register_main_rightnow login_now" type="submit" id="verify_login" value="立即登录" onclick="">
@@ -110,27 +104,35 @@ export default {
       password_check: {
         status: false,
         text: '您的密码不正确'
-      },
-      loginaccess: false
+      }
     }
   },
   methods: {
     checklogin () {
       var name = this.login_name
       var password = this.password
+      var box = []
+      var access = true
       if (!checkisEmail(name)) {
         this.name_check.status = true
-        this.loginaccess = false
+        box.push('n')
       } else {
-        this.loginaccess = true
+        box.push('y')
       }
       if (password.length <= 6) {
         this.password_check.status = true
-        this.loginaccess = false
+        box.push('n')
       } else {
-        this.loginaccess = true
+        box.push('y')
       }
-      if (this.loginaccess) {
+      for (let index = 0; index < box.length; index++) {
+        const element = box[index]
+        if (element === 'n') {
+          access = false
+          return access
+        }
+      }
+      if (access) {
         window.location.href = '/index'
       }
     }
@@ -143,7 +145,211 @@ $(document).on('click', '.login-group-head span', function () {
   content.eq(num).addClass('active').siblings().removeClass('active')
   $(this).addClass('active').siblings('span').removeClass('active')
 })
+$(document).on('change', '.fs-checkbox-de input[type="checkbox"]', function () {
+  var $this = $(this)
+  var checkstatus = $this.prop('checked')
+  if (!checkstatus) {
+    $this.parents('.fs-checkbox-de').removeClass('active')
+  } else {
+    $this.parents('.fs-checkbox-de').addClass('active')
+  }
+})
+$(document).on('click', '.fs-checkbox-de span', function () {
+  var $this = $(this)
+  var fcs = $this.siblings('b').find('input[type="checkbox"]').prop('checked')
+  if (!fcs) {
+    $this.siblings('b').find('input[type="checkbox"]').prop('checked', true)
+    $this.parent('.fs-checkbox-de').addClass('active')
+  } else {
+    $this.siblings('b').find('input[type="checkbox"]').prop('checked', false)
+    $this.parent('.fs-checkbox-de').removeClass('active')
+  }
+})
+// function OtherAfford () {
+//   var bg = "<div class='zt_backdrop'></div>"
+//   $('#fs_afford_df').show()
+//   $('body').append(bg)
+//   $('.fs_afford_df_btn a').off('click').on('click', function () {
+//     $(this).addClass('active').siblings().removeClass('active')
+//     if ($(this).hasClass('alipay')) {
+//       console.log('al')
+//       $('#fs_afford_df').fadeOut()
+//     }
+//     if ($(this).hasClass('wepay')) {
+//       console.log('wp')
+//       $('#fs_afford_df').fadeOut()
+//     }
+//   })
+// }
 </script>
 <style>
-
+.other-afford-link{
+  margin-top: -1px;
+  background: #FFFFFF;
+  position: relative;
+  z-index: 2;
+}
+.other-afford-link input{
+  width: 650px;
+  height: 38px;
+  border: 1px solid #f7d7d8;
+  background: #fdf9f8;
+  outline: none;
+  color: #333333;
+  padding: 0 10px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.other-afford-link input:focus{
+  outline: none;
+}
+.other-afford-bt{
+  padding-top: 20px;
+  padding-bottom: 48px;
+}
+.other-afford-button{
+  width: 178px;
+  height: 40px;
+  font-size: 16px;
+  line-height: 38px;
+  border-radius: 3px;
+  background: #d63030;
+  color: #FFFFFF;
+  text-align: center;
+  outline: none;
+  border: none;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.other-afford-button:hover{
+  background: #C61017;
+}
+.other-afford-bt a{
+  display: inline-block;
+  margin: 0 16px;
+  width: 178px;
+  height: 38px;
+  font-size: 14px;
+  line-height: 36px;
+  border-radius: 3px;
+  background: #FFFFFF;
+  color: #d63030;
+  text-align: center;
+  outline: none;
+  vertical-align: middle;
+  border: 1px solid #d63030;
+}
+.other-afford-bt a:hover{
+  text-decoration: none;
+}
+.fs-checkbox-de{
+  vertical-align: middle;
+  line-height: 24px;
+  /* margin-top: 26px; */
+  float: left;
+  cursor: pointer;
+}
+.fs-checkbox-de input[type="checkbox"]{
+  opacity: 0;
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.fs-checkbox-de b{
+  display: inline-block;
+  /*vertical-align: middle;*/
+  height: 24px;
+  width: 18px;
+  margin-right: 5px;
+  background: url(http://www.feisu.com/includes/templates/fiberstore/images/forum_select.png) no-repeat 0px 3px;
+}
+.fs-checkbox-de span{
+  font-size: 14px;
+  color: #666666;
+}
+.fs-checkbox-de.active b{
+  background: url(http://www.feisu.com/includes/templates/fiberstore/images/forum_select.png) no-repeat 0px -39px;
+}
+.fs_afford_df {
+  width: 460px;
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background: #FFFFFF;
+  border-radius: 3px;
+  transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  z-index: 999;
+  padding-bottom: 40px;
+}
+.fs_afford_df>h3 {
+  background: #F5F5F5;
+  color: #666666;
+  font-size: 16px;
+  line-height: 30px;
+  font-weight: 400;
+  padding: 15px 20px;
+}
+.fs_afford_df>h3 span {
+  float: right;
+  height: 30px;
+  width: 30px;
+  display: block;
+  background: url(http://www.feisu.com/includes/templates/fiberstore/images/shopcart_delete.png) no-repeat 1px 3px;
+  cursor: pointer;
+}
+.fs_afford_df>h3:after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  clear: both;
+}
+.fs_afford_df p {
+  color: #666666;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  padding-top: 34px;
+  padding-bottom: 24px;
+}
+.fs_afford_df_btn{
+  text-align: center;
+}
+.fs_afford_df_btn a{
+  display: inline-block;
+  width: 130px;
+  height: 38px;
+  line-height: 36px;
+  text-align: center;
+  margin: 0 8px;
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  text-indent: 999px;
+  overflow: hidden;
+  vertical-align: middle;
+  text-decoration: none;
+  background: url(http://www.feisu.com/includes/templates/fiberstore/images/bank-logo.png) no-repeat center;
+}
+.fs_afford_df_btn a:hover,.fs_afford_df_btn a.active{
+  border-color: #d63030;
+}
+.fs_afford_df_btn a.alipay{
+  background-position: 25px -1649px;
+}
+.fs_afford_df_btn a.wepay{
+  background-position: 13px -1757px;
+}
+.other-afford-button.complete{
+  background: #999999;
+  color: #FFFFFF;
+}
 </style>
