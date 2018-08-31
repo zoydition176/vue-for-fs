@@ -6,12 +6,12 @@
       <div class="login_center_right_main">
         <div class="login-group">
           <div class="login-group-head">
-            <span class="active">账号登录</span>
+            <span @click="login_method = 'normal'" :class="{'active':login_method === 'normal'}">账号登录</span>
             <em></em>
-            <span>验证码登录</span>
+            <span @click="login_method = 'special'" :class="{'active':login_method === 'special'}">验证码登录</span>
           </div>
           <div class="login-tab-content">
-            <div class="login-tab-panel active">
+            <div class="login-tab-panel active" v-if="login_method === 'normal'">
               <ul class="login-row">
                 <li>
                   <input type="text" id="email_address_login" name="email_address_login" @focus="name_check.status=false" class="register_main_form_input" placeholder="请输入手机号/邮箱" v-model="login_name">
@@ -42,7 +42,7 @@
               </div>
             </div>
 
-            <div class="login-tab-panel">
+            <div class="login-tab-panel" v-if="login_method === 'special'">
               <ul class="login-row">
                 <li>
                   <input type="text" id="verify_tel" name="verify_tel" class="register_main_form_input" placeholder="请输入手机号码" value=''>
@@ -94,16 +94,17 @@ export default {
   name: 'Login',
   data () {
     return {
-      touristbtn: false,
+      touristbtn: false, // 是否为游客
       login_name: '',
+      login_method: 'normal', // 登陆方法
       name_check: {
         status: false,
-        text: '您的邮箱格式不正确'
+        text: ''
       },
       password: '',
       password_check: {
         status: false,
-        text: '您的密码不正确'
+        text: ''
       }
     }
   },
@@ -115,12 +116,14 @@ export default {
       var access = true
       if (!checkisEmail(name)) {
         this.name_check.status = true
+        this.name_check.text = '您的邮箱格式不正确'
         box.push('n')
       } else {
         box.push('y')
       }
-      if (password.length <= 6) {
+      if (password.length <= 0) {
         this.password_check.status = true
+        this.password_check.text = '请填写您的密码'
         box.push('n')
       } else {
         box.push('y')
@@ -133,6 +136,8 @@ export default {
         }
       }
       if (access) {
+        this.password_check.text = ''
+        this.name_check.text = ''
         window.location.href = '/index'
       }
     }

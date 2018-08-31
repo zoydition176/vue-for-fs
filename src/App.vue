@@ -26,5 +26,10 @@ export default {
 </script>
 
 <style>
-
+/* @import '../static/public.css';
+@import '../static/fs_allCss.css';
+@import '../static/index.css';
+@import '../static/top_bottom.css';
+@import '../static/media.css';
+@import '../static/backstage.css'; */
 </style>
