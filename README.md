@@ -1,4 +1,4 @@
-# vue全家桶重写联系项目
+# vue全家桶重写练习项目
 > A Vue.js project
 
 ## Build Setup
