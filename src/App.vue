@@ -2,7 +2,9 @@
   <div id="fiberstoreApplication">
     <div class="box">
       <Header v-bind:title = "PageTitle"></Header>
-      <router-view/>
+      <transition name="fade">
+        <router-view/>
+      </transition>
     </div>
     <Footer></Footer>
   </div>
@@ -32,4 +34,10 @@ export default {
 @import '../static/top_bottom.css';
 @import '../static/media.css';
 @import '../static/backstage.css'; */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 </style>

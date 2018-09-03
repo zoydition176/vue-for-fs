@@ -187,7 +187,7 @@ $(document).on('click', '.fs-checkbox-de span', function () {
 //   })
 // }
 </script>
-<style>
+<style lang="less" scoped>
 .other-afford-link{
   margin-top: -1px;
   background: #FFFFFF;
