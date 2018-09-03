@@ -11,7 +11,7 @@
             <span @click="login_method = 'special'" :class="{'active':login_method === 'special'}">验证码登录</span>
           </div>
           <div class="login-tab-content">
-            <div class="login-tab-panel active" v-if="login_method === 'normal'">
+            <div class="login-tab-panel" v-if="login_method === 'normal'">
               <ul class="login-row">
                 <li>
                   <input type="text" id="email_address_login" name="email_address_login" @focus="name_check.status=false" class="register_main_form_input" placeholder="请输入手机号/邮箱" v-model="login_name">
