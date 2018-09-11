@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 /* @import '../static/public.css';
 @import '../static/fs_allCss.css';
 @import '../static/index.css';
@@ -35,7 +35,7 @@ export default {
 @import '../static/media.css';
 @import '../static/backstage.css'; */
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+  transition: opacity .3s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;

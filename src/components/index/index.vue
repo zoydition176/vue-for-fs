@@ -9,6 +9,11 @@ export default {
   name: 'index'
 }
 </script>
-<style>
+<style lang="less" scoped>
+.cn-box{
 
+}
+.cn-grid-1{
+  
+}
 </style>
