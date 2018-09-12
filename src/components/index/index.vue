@@ -11,9 +11,9 @@ export default {
 </script>
 <style lang="less" scoped>
 .cn-box{
-
+  width: 1440px;
 }
 .cn-grid-1{
-  
+  width: 10%;
 }
 </style>

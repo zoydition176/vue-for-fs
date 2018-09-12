@@ -8202,7 +8202,8 @@ input:-webkit-autofill {
 }
 
 .login-tab-panel {
-  display: none;
+  /* display: none; */
+  display: block;
 }
 
 .login-tab-panel.active {
