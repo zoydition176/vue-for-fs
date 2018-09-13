@@ -1,7 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import $ from 'jquery'
+// import $ from 'jquery'
 import App from './App'
 import router from './router'
 import '../static/public.css'
@@ -10,7 +10,7 @@ import '../static/index.css'
 import '../static/top_bottom.css'
 import '../static/media.css'
 import '../static/backstage.css'
-window.$ = $
+// window.$ = $
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
