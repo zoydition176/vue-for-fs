@@ -36,7 +36,10 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
+  },
+  created() {
+	  this.$emit('changetit', '忘记密码')
+	}
 }
 </script>
 

@@ -141,10 +141,13 @@ export default {
         window.location.href = '/index'
       }
     }
-  }
+  },
+  created() {
+		this.$emit('changetit', '登录')
+	}
 }
 // 选项卡切换
-$(document).on('click', '.login-group-head span', function () {
+/*$(document).on('click', '.login-group-head span', function () {
   var num = $('.login-group-head span').index(this)
   var content = $('.login-tab-content .login-tab-panel')
   content.eq(num).addClass('active').siblings().removeClass('active')
@@ -169,7 +172,7 @@ $(document).on('click', '.fs-checkbox-de span', function () {
     $this.siblings('b').find('input[type="checkbox"]').prop('checked', false)
     $this.parent('.fs-checkbox-de').removeClass('active')
   }
-})
+})*/
 </script>
 <style lang="less" scoped>
 .other-afford-link{
