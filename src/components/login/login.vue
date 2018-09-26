@@ -69,6 +69,7 @@
 
           </div>
         </div>
+        <div @click="showrouter()">123</div>
 
         <div class="login_center_right_other">
           <div class="login-divide">
@@ -87,9 +88,9 @@
 </div>
 </template>
 <script>
-import $ from 'jquery'
+// import $ from 'jquery'
 // import {checkisEmail, checkisMobilemainland, checkisMobilehk, checkisInt, checkisName} from '../../js/common_reg.js'
-import {checkisEmail} from '../../js/common_reg.js'
+import {checkisEmail, checkisMobilemainland} from '../../js/common_reg.js'
 export default {
   name: 'Login',
   data () {
@@ -108,15 +109,23 @@ export default {
       }
     }
   },
+  computed: {
+    username () {
+      return this.$route.params
+    }
+  },
   methods: {
+    showrouter () {
+      console.log(this)
+    },
     checklogin () {
       var name = this.login_name
       var password = this.password
       var box = []
       var access = true
-      if (!checkisEmail(name)) {
+      if (!checkisEmail(name) && !checkisMobilemainland(name)) {
         this.name_check.status = true
-        this.name_check.text = '您的邮箱格式不正确'
+        this.name_check.text = '您的账户格式不正确'
         box.push('n')
       } else {
         box.push('y')
@@ -142,37 +151,12 @@ export default {
       }
     }
   },
-  created() {
-		this.$emit('changetit', '登录')
-	}
+  created () {
+    var name = this.$route.name
+    this.$emit('changetit', {a: '登陆', b: name})
+  }
 }
-// 选项卡切换
-/*$(document).on('click', '.login-group-head span', function () {
-  var num = $('.login-group-head span').index(this)
-  var content = $('.login-tab-content .login-tab-panel')
-  content.eq(num).addClass('active').siblings().removeClass('active')
-  $(this).addClass('active').siblings('span').removeClass('active')
-})
-$(document).on('change', '.fs-checkbox-de input[type="checkbox"]', function () {
-  var $this = $(this)
-  var checkstatus = $this.prop('checked')
-  if (!checkstatus) {
-    $this.parents('.fs-checkbox-de').removeClass('active')
-  } else {
-    $this.parents('.fs-checkbox-de').addClass('active')
-  }
-})
-$(document).on('click', '.fs-checkbox-de span', function () {
-  var $this = $(this)
-  var fcs = $this.siblings('b').find('input[type="checkbox"]').prop('checked')
-  if (!fcs) {
-    $this.siblings('b').find('input[type="checkbox"]').prop('checked', true)
-    $this.parent('.fs-checkbox-de').addClass('active')
-  } else {
-    $this.siblings('b').find('input[type="checkbox"]').prop('checked', false)
-    $this.parent('.fs-checkbox-de').removeClass('active')
-  }
-})*/
+
 </script>
 <style lang="less" scoped>
 .other-afford-link{

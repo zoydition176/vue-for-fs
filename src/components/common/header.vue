@@ -3,7 +3,10 @@
   <div class="FiberStore_cs_new_header">
     <router-link to="/" class='FiberStore_login_logo'></router-link>
     <span class="FiberStore_login_logo_1ine"></span>
-    <p>{{title}}</p>
+    <p>{{title.a}}</p>
+    <div class="backtologin" v-if="pagestatus">
+      <router-link to="/login">退出登陆</router-link>
+    </div>
   </div>
 </template>
 <script>
@@ -15,7 +18,16 @@ export default {
     }
   },
   props: {
-    title: String
+    title: Object
+  },
+  computed: {
+    pagestatus () {
+      if (this.title.b === 'login' || this.title.b === 'passwordforgotten') {
+        return false
+      } else {
+        return true
+      }
+    }
   }
 }
 </script>
@@ -162,4 +174,16 @@ export default {
   color: #939393;
 }
 /*购物流程页面底部头部样式结束*/
+
+.backtologin{
+  float: right;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+}
+
+.backtologin a:hover{
+  color: #0681D3;
+  text-decoration: none;
+}
 </style>

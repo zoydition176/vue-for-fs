@@ -1,7 +1,7 @@
 <template>
   <div id="fiberstoreApplication">
+    <Header v-bind:title = "PageTitle"></Header>
     <div class="box">
-      <Header v-bind:title = "PageTitle"></Header>
       <router-view v-on:changetit="onChangetit"/>
     </div>
     <Footer></Footer>
@@ -15,7 +15,7 @@ export default {
   name: 'App',
   data () {
     return {
-      PageTitle: '页面名称'
+      PageTitle: {}
     }
   },
   components: {
@@ -23,8 +23,8 @@ export default {
     Footer
   },
   methods: {
-    onChangetit(e){
-      this.PageTitle = e
+    onChangetit (pageInt) {
+      this.PageTitle = pageInt
     }
   }
 }
@@ -118,6 +118,14 @@ input::-webkit-input-safebox-button {
   -webkit-user-modify: read-only;
   flex: 0 0 auto;
   margin: auto 0px;
+}
+
+.clear:after{
+  content: '';
+  display: block;
+  clear: both;
+  width: 0;
+  height: 0;
 }
 
 .m_header {
