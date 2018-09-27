@@ -15,11 +15,13 @@
 </template>
 
 <script>
-import {zbase} from '../../js/base.js'
+import $ from 'jquery'
+import {zbase} from '@/js/base.js'
 export default {
   name: 'index',
   methods: {
     mytest () {
+      console.log($)
       console.log(zbase)
     }
   },
