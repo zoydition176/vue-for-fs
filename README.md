@@ -1,4 +1,4 @@
-# vue全家桶重写练习项目
+# vue  练习   整合活动专题页面和简单登陆注册
 > A Vue.js project
 
 ## Build Setup
