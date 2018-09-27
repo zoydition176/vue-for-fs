@@ -8,14 +8,21 @@
         <li class="cn-ul-list">123123</li>
         <li class="cn-ul-list">123123</li>
       </ul>
+      <button v-on:click="mytest()">test</button>
       <button v-on:click="$emit('changetit', '首页')">emit tithe</button>
     </div>
   </div>
 </template>
 
 <script>
+import {zbase} from '../../js/base.js'
 export default {
   name: 'index',
+  methods: {
+    mytest () {
+      console.log(zbase)
+    }
+  },
   created () {
     var name = this.$route.name
     this.$emit('changetit', {a: '首页', b: name})
