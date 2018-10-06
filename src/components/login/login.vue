@@ -115,9 +115,6 @@ export default {
     }
   },
   methods: {
-    showrouter () {
-      console.log(this)
-    },
     checklogin () {
       var name = this.login_name
       var password = this.password
@@ -152,6 +149,7 @@ export default {
     }
   },
   created () {
+    console.log(this)
     var name = this.$route.name
     this.$emit('changetit', {a: '登陆', b: name})
   }

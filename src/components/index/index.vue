@@ -8,23 +8,16 @@
         <li class="cn-ul-list">123123</li>
         <li class="cn-ul-list">123123</li>
       </ul>
-      <button v-on:click="mytest()">test</button>
-      <button v-on:click="$emit('changetit', {a: '首页2', b: routerName})">emit tithe</button>
     </div>
   </div>
 </template>
 
 <script>
 // import $ from 'jquery'
-import {zbase} from '@/js/base.js'
+// import {zbase} from '@/js/base.js'
 export default {
   name: 'index',
-  methods: {
-    mytest () {
-      // console.log($)
-      console.log(zbase)
-    }
-  },
+  methods: {},
   computed: {
     routerName () {
       return this.$route.name

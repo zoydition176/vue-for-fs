@@ -30,5 +30,6 @@
 //     }
 //   }
 // }
-var zbase = 3
+var zbase = {}
+zbase.config = []
 export {zbase}
