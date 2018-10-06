@@ -1,5 +1,7 @@
-# vue  练习   整合活动专题页面和简单登陆注册
+# vue  练习   整合活动专题页面和验证模块
 > A Vue.js project
+
+
 
 ## Build Setup
 
