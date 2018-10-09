@@ -1,12 +1,14 @@
 <template>
   <div class="indexbox" id="indexContent">
     <div class="cn-box">
-      <h3>首页板块</h3>
+      <h3>
+        首页板块
+        <span v-html="routerName"></span>
+      </h3>
       <ul class="cn-ul clear">
-        <li class="cn-ul-list">123123</li>
-        <li class="cn-ul-list">123123</li>
-        <li class="cn-ul-list">123123</li>
-        <li class="cn-ul-list">123123</li>
+        <li class="cn-ul-list">测试验证函数</li>
+        <li class="cn-ul-list">地址栏复用模块</li>
+        <li class="cn-ul-list">专题页复用模块</li>
       </ul>
     </div>
   </div>
@@ -43,13 +45,18 @@ export default {
 }
 .cn-ul .cn-ul-list{
   float: left;
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
   width: 25%;
-  height: 24px;
-  line-height: 24px;
+  height: 40px;
+  line-height: 40px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.cn-box h3{
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
 }
 </style>
