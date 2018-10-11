@@ -4,12 +4,14 @@
     <div class="box">
       <router-view v-on:changetit="onChangetit"/>
     </div>
+    <test></test>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Header from '@/components/common/header'
+import test from '@/components/global/test'
 import Footer from '@/components/common/footer'
 export default {
   name: 'App',
@@ -20,6 +22,7 @@ export default {
   },
   components: {
     Header,
+    test,
     Footer
   },
   methods: {

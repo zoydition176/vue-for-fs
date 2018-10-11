@@ -11,7 +11,7 @@
 </template>
 <script>
 export default {
-  name: 'fsheader',
+  name: 'Header',
   data () {
     return {
       msg: '页面名称'
