@@ -11,6 +11,7 @@
         <li class="cn-ul-list">专题页复用模块</li>
       </ul>
     </div>
+    <Banner></Banner>
   </div>
 </template>
 
