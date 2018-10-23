@@ -144,7 +144,9 @@ export default {
       if (access) {
         this.password_check.text = ''
         this.name_check.text = ''
-        window.location.href = '/index'
+        // window.location.href = '/index'
+        // 这个就是跳转  其实根本上是差不多的  后面是手动在history里面添加，前者是自动添加  
+        this.$router.push({ path: '/regist' })
       }
     }
   },
