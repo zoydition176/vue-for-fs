@@ -69,7 +69,7 @@
 
           </div>
         </div>
-        <div @click="showrouter()">123</div>
+        <div>{{username}}</div>
 
         <div class="login_center_right_other">
           <div class="login-divide">
@@ -145,8 +145,8 @@ export default {
         this.password_check.text = ''
         this.name_check.text = ''
         // window.location.href = '/index'
-        // 这个就是跳转  其实根本上是差不多的  后面是手动在history里面添加，前者是自动添加  
-        this.$router.push({ path: '/regist' })
+        // 这个就是跳转,其实根本上是差不多的,后面是手动在history里面添加,前者是自动添加
+        this.$router.push({ path: '/index' })
       }
     }
   },
@@ -512,10 +512,6 @@ export default {
 
 .login_center_right_main>span:hover {
   background: url(../../../static/images/shopcart_delete.png) no-repeat -61px 3px;
-}
-
-.Fiber_fjc {
-  /*min-height: 385px;*/
 }
 
 .Fiber_fjc li {

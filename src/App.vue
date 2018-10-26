@@ -4,7 +4,6 @@
     <div class="box">
       <router-view v-on:changetit="onChangetit"/>
     </div>
-    <test></test>
     <Footer></Footer>
   </div>
 </template>

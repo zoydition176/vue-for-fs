@@ -1,10 +1,6 @@
 <template>
   <div class="indexbox" id="indexContent">
     <div class="cn-box">
-      <h3>
-        首页板块
-        <span v-html="routerName"></span>
-      </h3>
       <ul class="cn-ul clear">
         <li class="cn-ul-list">测试验证函数</li>
         <li class="cn-ul-list">地址栏复用模块</li>
